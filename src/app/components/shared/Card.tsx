@@ -6,10 +6,10 @@ interface ICardProps {
   card: ICard;
 }
 
-const CardPage = ({ card }: ICardProps) => {
+const Card = ({ card }: ICardProps) => {
   return (
     <div className="">
-      <Link href={`/workout/${card.id}`} className="group block w-full">
+      <Link href={`/workouts/${card.id}`} className="group block w-full">
         <article
           className="
           overflow-hidden
@@ -117,4 +117,4 @@ const CardPage = ({ card }: ICardProps) => {
   );
 };
 
-export default CardPage;
+export default Card;

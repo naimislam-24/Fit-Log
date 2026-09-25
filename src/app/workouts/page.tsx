@@ -1,12 +1,12 @@
 import { getAllCard } from "@/app/lib/cards";
 import { ICard } from "@/app/types/cards-type";
-import CardPage from "../shared/Card";
+import Card from "../components/shared/Card";
 
 // interface ICartProps {
 //   card: ICard;
 // }
 
-const TendingCard = async () => {
+const WorkoutPage = async () => {
   const data = await getAllCard();
   console.log("Data", data);
 
@@ -22,11 +22,11 @@ const TendingCard = async () => {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 container mx-auto mt-8">
         {data.map((card: ICard, ind: number) => (
-          <CardPage key={ind} card={card} />
+          <Card key={ind} card={card} />
         ))}
       </div>
     </div>
   );
 };
 
-export default TendingCard;
+export default WorkoutPage;
