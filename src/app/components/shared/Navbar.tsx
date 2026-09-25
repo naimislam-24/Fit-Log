@@ -3,12 +3,15 @@ import Image from "next/image";
 import logo from "@/app/assets/logo.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useContext } from "react";
+import { CardsContext } from "@/app/context/CardsProvider";
 
 const Navbar = () => {
   const pathname = usePathname();
+  const { planCard, saveCard } = useContext(CardsContext);
 
   return (
-    <div className="bg-base-200 shadow-sm sticky top-0 z-50">
+    <div className="bg-[#101216] shadow-sm sticky top-0 z-50">
       <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -61,8 +64,8 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-6">
-          <Link href="/my-plan">Plan</Link>
-          <Link href="/my-plan">Saved</Link>
+          <Link href="/my-plan">plan ({planCard.length})</Link>
+          <Link href="/my-plan">Saved ({saveCard.length})</Link>
         </div>
       </div>
     </div>
@@ -70,3 +73,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+// (${planCard.length})

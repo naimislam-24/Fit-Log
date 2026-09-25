@@ -1,5 +1,5 @@
 "use client";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CardsContext } from "../context/CardsProvider";
 import { ICard } from "../types/cards-type";
 import PlanCard from "../components/shared/PlanCard";
@@ -7,10 +7,33 @@ import SaveCard from "../components/shared/SaveCard";
 
 const MyPlanPage = () => {
   const { planCard, saveCard } = useContext(CardsContext);
-  console.log("Plan Card", planCard);
+  const [sortBy, setSortBy] = useState<"duration" | "calories" | "rating">(
+    "duration",
+  );
+  // console.log(sortBy, "sort");
+  // console.log("Plan Card", planCard);
+
+  const sortCard = (card: ICard[]) => {
+    const sortedCards = [...card];
+
+    if (sortBy === "duration") {
+      sortedCards.sort((a, b) => b.duration - a.duration);
+    } else if (sortBy === "calories") {
+      sortedCards.sort((a, b) => b.caloriesBurned - a.caloriesBurned);
+    } else if (sortBy === "rating") {
+      sortedCards.sort((a, b) => b.rating - a.rating);
+    }
+    return sortedCards;
+  };
+
+  const sortedPlanCard = sortCard(planCard);
+  const sortedSaveCard = sortCard(saveCard);
+
+  // console.log("sortedPlanCard", sortedPlanCard);
+  // console.log("sortedSaveCard", sortedSaveCard);
 
   return (
-    <div className="">
+    <div className="min-h-[75vh]">
       <div className="container mx-auto mt-16">
         <h2 className="max-w-xl text-4xl font-black leading-[0.95] tracking-tight text-white sm:text-1xl md:text-3xl lg:text-3xl xl:text-3xl">
           THE LIBRARY
@@ -21,20 +44,19 @@ const MyPlanPage = () => {
       </div>
 
       <div className="container mx-auto">
-        {/* My Plan Page: <br /> My Save Page: */}
-        {/* name of each tab group should be unique */}
         <div className="tabs tabs-lift">
           <input
             type="radio"
             name="my_tabs_3"
             className="tab"
-            aria-label={`Today's Plan (${planCard.length})`}
+            aria-label="Today's Plan"
+            defaultChecked
           />
 
           <div className="tab-content bg-base-100 border-base-300 p-6">
             <div className="">
-              {planCard.length > 0 ? (
-                planCard.map((card: ICard) => (
+              {sortedPlanCard.length > 0 ? (
+                sortedPlanCard.map((card: ICard) => (
                   <PlanCard key={card.id} card={card} />
                 ))
               ) : (
@@ -64,13 +86,13 @@ const MyPlanPage = () => {
             type="radio"
             name="my_tabs_3"
             className="tab"
-            aria-label={`Saved (${saveCard.length})`}
-            defaultChecked
+            aria-label="Saved"
+            // defaultChecked
           />
           <div className="tab-content bg-base-100 border-base-300 p-6">
             <div className="">
-              {saveCard.length > 0 ? (
-                saveCard.map((card: ICard) => (
+              {sortedSaveCard.length > 0 ? (
+                sortedSaveCard.map((card: ICard) => (
                   <SaveCard key={card.id} card={card} />
                 ))
               ) : (
@@ -94,6 +116,35 @@ const MyPlanPage = () => {
                 </div>
               )}
             </div>
+          </div>
+
+          <div className="flex gap-2 ml-auto">
+            <h4 className="pt-2">Sort By</h4>
+            {/* <select
+              value={sortBy}
+              onChange={(e) =>
+                setSortBy(e.target.value as "duration" | "calories" | "rating")
+              }
+              defaultValue="Pick a color"
+              className="select appearance"
+            >
+              <option disabled={true}>Duration</option>
+              <option value={"duration"}>Duration</option>
+              <option value={"calories"}>Calories</option>
+              <option value={"rating"}>Rating</option>
+            </select> */}
+
+            <select
+              value={sortBy}
+              onChange={(e) =>
+                setSortBy(e.target.value as "duration" | "calories" | "rating")
+              }
+              className="rounded-lg border border-white/10 bg-[#15171c] px-4 py-2 text-sm text-white"
+            >
+              <option value="duration">Duration</option>
+              <option value="calories">Calories</option>
+              <option value="rating">Rating</option>
+            </select>
           </div>
         </div>
       </div>
