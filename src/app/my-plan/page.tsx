@@ -34,16 +34,16 @@ const MyPlanPage = () => {
 
   return (
     <div className="min-h-[75vh]">
-      <div className="container mx-auto mt-16">
+      <div className="container mx-auto mt-14">
         <h2 className="max-w-xl text-4xl font-black leading-[0.95] tracking-tight text-white sm:text-1xl md:text-3xl lg:text-3xl xl:text-3xl">
           THE LIBRARY
         </h2>
-        <p className="mt-5 max-w-lg text-sm leading-6 text-gray-400 sm:text-base">
+        <p className="mt-3 max-w-lg text-sm leading-6 text-gray-400 sm:text-base">
           Twelve lifts covering every major muscle group.
         </p>
       </div>
 
-      <div className="container mx-auto">
+      <div className="container mx-auto mt-10">
         <div className="tabs tabs-lift">
           <input
             type="radio"

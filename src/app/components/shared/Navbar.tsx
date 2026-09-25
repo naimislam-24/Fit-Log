@@ -36,12 +36,16 @@ const Navbar = () => {
               tabIndex={-1}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
-              <li>
-                <a>Workouts</a>
-              </li>
-              <li>
-                <a>My Plan</a>
-              </li>
+              <Link href="/">
+                <li className={pathname === "/" ? "text-[#ccff00]" : ""}>
+                  Workouts
+                </li>
+              </Link>
+              <Link href="/my-plan">
+                <li className={pathname === "/my-plan" ? "text-[#ccff00]" : ""}>
+                  My Plan
+                </li>
+              </Link>
             </ul>
           </div>
           <div className="flex items-center">
