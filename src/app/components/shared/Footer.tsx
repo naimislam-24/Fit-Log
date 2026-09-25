@@ -18,8 +18,6 @@ const Footer = () => {
             FITLOG
           </span>
         </div>
-
-        {/* Copyright */}
         <p className="text-right text-[10px] leading-5 text-gray-500 sm:text-xs">
           © 2026 FitLog — Workout Library. Train hard, log honest.
         </p>

@@ -24,7 +24,6 @@ const Card = ({ card }: ICardProps) => {
           hover:shadow-[0_15px_40px_rgba(0,0,0,0.35)]
         "
         >
-          {/* Image */}
           <div className="relative aspect-16/10 w-full overflow-hidden bg-[#202228]">
             <Image
               src={card.image}
@@ -37,12 +36,8 @@ const Card = ({ card }: ICardProps) => {
               group-hover:scale-105
             "
             />
-
-            {/* Image Overlay */}
             <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
           </div>
-
-          {/* Content */}
           <div className="p-4 sm:p-5">
             {/* Muscle Groups */}
             <div className="mb-3 flex flex-wrap gap-2">
@@ -65,8 +60,6 @@ const Card = ({ card }: ICardProps) => {
                 </span>
               ))}
             </div>
-
-            {/* Title */}
             <h2
               className="
               text-lg
@@ -83,28 +76,17 @@ const Card = ({ card }: ICardProps) => {
             >
               {card.name}
             </h2>
-
-            {/* Equipment */}
             <p className="mt-1 text-sm text-gray-500">{card.equipment}</p>
-
-            {/* Divider */}
             <div className="my-4 h-px bg-white/10" />
-
-            {/* Stats */}
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-gray-400">
-              {/* Duration */}
               <div className="flex items-center gap-1.5">
                 <span>◷</span>
                 <span>{card.duration} min</span>
               </div>
-
-              {/* Calories */}
               <div className="flex items-center gap-1.5">
                 <span>🔥</span>
                 <span>{card.caloriesBurned} kcal</span>
               </div>
-
-              {/* Rating */}
               <div className="flex items-center gap-1.5">
                 <span className="text-yellow-400">★</span>
                 <span>{card.rating}</span>

@@ -8,8 +8,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    // bg-base-100
-    <div className="bg-base-200 shadow-sm">
+    <div className="bg-base-200 shadow-sm sticky top-0 z-50">
       <div className="navbar container mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
@@ -27,7 +26,7 @@ const Navbar = () => {
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
+                />
               </svg>
             </div>
             <ul
@@ -53,16 +52,17 @@ const Navbar = () => {
               <li className={pathname === "/" ? "text-[#ccff00]" : ""}>
                 Workouts
               </li>
-              {/* <li className={pathname === "/" ? "text-blue-500" : ""}>Home</li> */}
             </Link>
-            <Link href="">
-              <li>My Plan</li>
+            <Link href="/my-plan">
+              <li className={pathname === "/my-plan" ? "text-[#ccff00]" : ""}>
+                My Plan
+              </li>
             </Link>
           </ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn">Plan</a>
-          <a className="btn">Saved</a>
+        <div className="navbar-end gap-6">
+          <Link href="/my-plan">Plan</Link>
+          <Link href="/my-plan">Saved</Link>
         </div>
       </div>
     </div>
