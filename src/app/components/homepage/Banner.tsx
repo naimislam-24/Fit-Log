@@ -11,7 +11,7 @@ const Banner = () => {
           <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-[#ccff00]">
             Workout Library
           </p>
-          <h1 className="max-w-xl text-4xl font-black leading-[0.95] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+          <h1 className="max-w-xl text-4xl font-black leading-[0.95] tracking-tight text-white sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl">
             TRAIN WITH INTENT. LOG EVERY SET.
           </h1>
           <p className="mt-5 max-w-lg text-sm leading-6 text-gray-400 sm:text-base">

@@ -1,7 +1,12 @@
+"use client";
 import Image from "next/image";
 import logo from "@/app/assets/logo.png";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const pathname = usePathname();
+
   return (
     // bg-base-100
     <div className="bg-base-200 shadow-sm">
@@ -17,7 +22,6 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                {" "}
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -31,10 +35,10 @@ const Navbar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a>Item 1</a>
+                <a>Workouts</a>
               </li>
               <li>
-                <a>Item 3</a>
+                <a>My Plan</a>
               </li>
             </ul>
           </div>
@@ -44,13 +48,16 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+          <ul className="menu menu-horizontal px-1 gap-5">
+            <Link href="/">
+              <li className={pathname === "/" ? "text-[#ccff00]" : ""}>
+                Workouts
+              </li>
+              {/* <li className={pathname === "/" ? "text-blue-500" : ""}>Home</li> */}
+            </Link>
+            <Link href="">
+              <li>My Plan</li>
+            </Link>
           </ul>
         </div>
         <div className="navbar-end">
