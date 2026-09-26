@@ -1,12 +1,16 @@
+import { CardsContext } from "@/app/context/CardsProvider";
 import { ICard } from "@/app/types/cards-type";
 import Image from "next/image";
 import Link from "next/link";
+import { useContext } from "react";
 
 interface ICardProps {
   card: ICard;
 }
 
 const SaveCard = ({ card }: ICardProps) => {
+  const { deleteSavedCard } = useContext(CardsContext);
+
   return (
     <div className="container mx-auto mt-4">
       <div
@@ -48,6 +52,15 @@ const SaveCard = ({ card }: ICardProps) => {
               View Details
             </button>
           </Link>
+          <button
+            onClick={() => deleteSavedCard(card.id)}
+            aria-label={`Delete ${card.name}`}
+            className="group inline-flex h-10 w-full items-center justify-center rounded-xl border border-red-500/20 bg-red-500/10 px-4 text-lg font-bold text-red-400 transition-all duration-300 hover:-translate-y-0.5 hover:border-red-500/40 hover:bg-red-500/20 hover:text-red-300 active:scale-95 sm:w-10"
+          >
+            <span className="transition-transform duration-300 group-hover:rotate-90">
+              ×
+            </span>
+          </button>
         </div>
       </div>
     </div>

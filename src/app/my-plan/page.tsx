@@ -10,6 +10,10 @@ const MyPlanPage = () => {
   const [sortBy, setSortBy] = useState<"duration" | "calories" | "rating">(
     "duration",
   );
+
+  const [tab, setTab] = useState("today-plan");
+  // console.log("Tab", tab);
+
   // console.log(sortBy, "sort");
   // console.log("Plan Card", planCard);
 
@@ -32,15 +36,28 @@ const MyPlanPage = () => {
   // console.log("sortedPlanCard", sortedPlanCard);
   // console.log("sortedSaveCard", sortedSaveCard);
 
-  const totalExercises = planCard.length;
-  const totalMinutes = planCard.reduce(
+  const totalExercisesPlanCard = planCard.length;
+  const totalMinutesPlanCard = planCard.reduce(
     (total, card) => total + card.duration,
     0,
   );
-  const totalCalories = planCard.reduce(
+  const totalCaloriesPlanCard = planCard.reduce(
     (total, card) => total + card.caloriesBurned,
     0,
   );
+
+  const totalExercisesSavedCard = saveCard.length;
+  const totalMinutesSavedCard = saveCard.reduce(
+    (total, card) => total + card.duration,
+    0,
+  );
+  const totalCaloriesSavedCard = saveCard.reduce(
+    (total, card) => total + card.caloriesBurned,
+    0,
+  );
+  console.log(totalCaloriesPlanCard);
+
+  console.log(totalCaloriesSavedCard);
 
   return (
     <div className="min-h-[75vh]">
@@ -55,58 +72,108 @@ const MyPlanPage = () => {
       {/* ************************************************************************** */}
 
       <div className="container mx-auto mt-8">
-        <div className="w-full rounded-2xl border border-white/10 bg-[#12151a] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.25)] sm:p-6">
-          <div className="grid grid-cols-1 divide-y divide-white/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-            {/* Exercises */}
-            <div className="flex items-center justify-between px-2 py-5 sm:px-6 sm:py-2">
-              <div>
-                <p className="text-xs font-medium tracking-wide text-gray-500">
-                  Exercises
-                </p>
-                <h3 className="mt-1 text-3xl font-bold text-[#ccff00]">
-                  {totalExercises}
-                </h3>
+        {tab === "today-plan" ? (
+          <div className="w-full rounded-2xl border border-white/10 bg-[#12151a] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.25)] sm:p-6">
+            <div className="grid grid-cols-1 divide-y divide-white/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+              {/* Exercises */}
+              <div className="flex items-center justify-between px-2 py-5 sm:px-6 sm:py-2">
+                <div>
+                  <p className="text-xs font-medium tracking-wide text-gray-500">
+                    Exercises
+                  </p>
+                  <h3 className="mt-1 text-3xl font-bold text-[#ccff00]">
+                    {totalExercisesPlanCard}
+                  </h3>
+                </div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ccff00]/10 text-[#ccff00] sm:hidden">
+                  ✓
+                </div>
               </div>
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ccff00]/10 text-[#ccff00] sm:hidden">
-                ✓
+              {/* Minutes */}
+              <div className="flex items-center justify-between px-2 py-5 sm:px-6 sm:py-2">
+                <div>
+                  <p className="text-xs font-medium tracking-wide text-gray-500">
+                    Minutes
+                  </p>
+                  <h3 className="mt-1 text-3xl font-bold text-white">
+                    {totalMinutesPlanCard}
+                  </h3>
+                </div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-gray-300 sm:hidden">
+                  ⏱
+                </div>
               </div>
-            </div>
-            {/* Minutes */}
-            <div className="flex items-center justify-between px-2 py-5 sm:px-6 sm:py-2">
-              <div>
-                <p className="text-xs font-medium tracking-wide text-gray-500">
-                  Minutes
-                </p>
-                <h3 className="mt-1 text-3xl font-bold text-white">
-                  {totalMinutes}
-                </h3>
-              </div>
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-gray-300 sm:hidden">
-                ⏱
-              </div>
-            </div>
-            {/* Calories */}
-            <div className="flex items-center justify-between px-2 py-5 sm:px-6 sm:py-2">
-              <div>
-                <p className="text-xs font-medium tracking-wide text-gray-500">
-                  Calories
-                </p>
-                <h3 className="mt-1 text-3xl font-bold text-white">
-                  {totalCalories}
-                </h3>
-              </div>
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/10 text-orange-400 sm:hidden">
-                🔥
+              {/* Calories */}
+              <div className="flex items-center justify-between px-2 py-5 sm:px-6 sm:py-2">
+                <div>
+                  <p className="text-xs font-medium tracking-wide text-gray-500">
+                    Calories
+                  </p>
+                  <h3 className="mt-1 text-3xl font-bold text-white">
+                    {totalCaloriesPlanCard}
+                  </h3>
+                </div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/10 text-orange-400 sm:hidden">
+                  🔥
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="w-full rounded-2xl border border-white/10 bg-[#12151a] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.25)] sm:p-6">
+            <div className="grid grid-cols-1 divide-y divide-white/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+              {/* Exercises */}
+              <div className="flex items-center justify-between px-2 py-5 sm:px-6 sm:py-2">
+                <div>
+                  <p className="text-xs font-medium tracking-wide text-gray-500">
+                    Exercises
+                  </p>
+                  <h3 className="mt-1 text-3xl font-bold text-[#ccff00]">
+                    {totalExercisesSavedCard}
+                  </h3>
+                </div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ccff00]/10 text-[#ccff00] sm:hidden">
+                  ✓
+                </div>
+              </div>
+              {/* Minutes */}
+              <div className="flex items-center justify-between px-2 py-5 sm:px-6 sm:py-2">
+                <div>
+                  <p className="text-xs font-medium tracking-wide text-gray-500">
+                    Minutes
+                  </p>
+                  <h3 className="mt-1 text-3xl font-bold text-white">
+                    {totalMinutesSavedCard}
+                  </h3>
+                </div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-gray-300 sm:hidden">
+                  ⏱
+                </div>
+              </div>
+              {/* Calories */}
+              <div className="flex items-center justify-between px-2 py-5 sm:px-6 sm:py-2">
+                <div>
+                  <p className="text-xs font-medium tracking-wide text-gray-500">
+                    Calories
+                  </p>
+                  <h3 className="mt-1 text-3xl font-bold text-white">
+                    {totalCaloriesSavedCard}
+                  </h3>
+                </div>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/10 text-orange-400 sm:hidden">
+                  🔥
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* ************************************************************************** */}
       <div className="container mx-auto mt-10">
         <div className="tabs tabs-lift">
           <input
+            onChange={() => setTab("today-plan")}
             type="radio"
             name="my_tabs_3"
             className="tab"
@@ -144,6 +211,7 @@ const MyPlanPage = () => {
           </div>
 
           <input
+            onChange={() => setTab("saver")}
             type="radio"
             name="my_tabs_3"
             className="tab"

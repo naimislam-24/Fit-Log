@@ -48,10 +48,12 @@ const Navbar = () => {
               </Link>
             </ul>
           </div>
-          <div className="flex items-center">
-            <Image width={28} height={28} alt="Logo" src={logo} />
-            <a className="btn btn-ghost text-xl">FITLOG</a>
-          </div>
+          <Link href="/">
+            <div className="flex items-center">
+              <Image width={28} height={28} alt="Logo" src={logo} />
+              <h1 className="btn btn-ghost text-xl">FITLOG</h1>
+            </div>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-5">
@@ -68,7 +70,10 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-6">
-          <Link href="/my-plan">plan ({planCard.length})</Link>
+          <Link href="/my-plan">
+            plan <span className="text-[#ccff00]">({planCard.length})</span>
+          </Link>
+          {/* className="mt-1 text-3xl font-bold text-[#ccff00]" */}
           <Link href="/my-plan">Saved ({saveCard.length})</Link>
         </div>
       </div>
@@ -77,5 +82,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-// (${planCard.length})
