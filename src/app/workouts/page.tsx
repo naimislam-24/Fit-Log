@@ -2,10 +2,6 @@ import { getAllCard } from "@/app/lib/cards";
 import { ICard } from "@/app/types/cards-type";
 import Card from "../components/shared/Card";
 
-// interface ICartProps {
-//   card: ICard;
-// }
-
 const WorkoutPage = async () => {
   const data = await getAllCard();
   console.log("Data", data);

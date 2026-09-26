@@ -1,17 +1,14 @@
-// import { CardsContext } from "@/app/context/CardsProvider";
 import { ICard } from "@/app/types/cards-type";
 import Image from "next/image";
 import Link from "next/link";
-import { useContext } from "react";
-import { CardsContext } from "@/app/context/CardsProvider";
+import DeletePlanCard from "./DeletePlanCard";
+import DeleteMarkButton from "./DeleteMarkButton";
 
 interface ICardProps {
   card: ICard;
 }
 
 const PlanCard = ({ card }: ICardProps) => {
-  const { deletePlanCard } = useContext(CardsContext);
-
   return (
     <div className="container mx-auto mt-4">
       <div
@@ -56,22 +53,8 @@ const PlanCard = ({ card }: ICardProps) => {
               View Details
             </button>
           </Link>
-          <button
-            className="group inline-flex w-full items-center justify-center gap-1.5 rounded-xl bg-[#c8ff00] px-5 py-2.5 text-xs font-bold text-black shadow-[0_0_20px_rgba(200,255,0,0.15)]
-                      transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#d4ff33] hover:shadow-[0_0_25px_rgba(200,255,0,0.3)] active:scale-[0.97] sm:w-auto"
-          >
-            <span className="flex h-4 w-4 items-center justify-center rounded-full bg-black/10 text-[10px] font-black transition-transform duration-300 group-hover:rotate-6">
-              ✓
-            </span>
-            <span>Mark as Done</span>
-          </button>
-          <button
-            onClick={() => deletePlanCard(card.id)}
-            aria-label={`Delete ${card.name}`}
-            className="group inline-flex h-10 w-full items-center justify-center rounded-xl px-4 text-lg font-bold transition-all duration-300 hover:-translate-y-0.5 hover:border-red-500/40 hover:bg-gray-800 hover:text-gray-200 active:scale-95 sm:w-10"
-          >
-            <span>×</span>
-          </button>
+          <DeleteMarkButton card={card} />
+          <DeletePlanCard card={card} />
         </div>
       </div>
     </div>

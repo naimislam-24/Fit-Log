@@ -39,7 +39,6 @@ const Card = ({ card }: ICardProps) => {
             <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
           </div>
           <div className="p-4 sm:p-5">
-            {/* Muscle Groups */}
             <div className="mb-3 flex flex-wrap gap-2">
               {card.muscleGroups.map((muscle) => (
                 <span

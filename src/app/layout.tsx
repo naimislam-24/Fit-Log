@@ -8,6 +8,7 @@ import { ToastContainer } from "react-toastify";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
+  // variable: "--Oswald",
   subsets: ["latin"],
 });
 

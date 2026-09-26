@@ -73,7 +73,6 @@ const Navbar = () => {
           <Link href="/my-plan">
             plan <span className="text-[#ccff00]">({planCard.length})</span>
           </Link>
-          {/* className="mt-1 text-3xl font-bold text-[#ccff00]" */}
           <Link href="/my-plan">Saved ({saveCard.length})</Link>
         </div>
       </div>

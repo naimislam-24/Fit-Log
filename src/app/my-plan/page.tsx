@@ -249,20 +249,6 @@ const MyPlanPage = () => {
 
           <div className="flex gap-2 ml-auto">
             <h4 className="pt-2">Sort By</h4>
-            {/* <select
-              value={sortBy}
-              onChange={(e) =>
-                setSortBy(e.target.value as "duration" | "calories" | "rating")
-              }
-              defaultValue="Pick a color"
-              className="select appearance"
-            >
-              <option disabled={true}>Duration</option>
-              <option value={"duration"}>Duration</option>
-              <option value={"calories"}>Calories</option>
-              <option value={"rating"}>Rating</option>
-            </select> */}
-
             <select
               value={sortBy}
               onChange={(e) =>

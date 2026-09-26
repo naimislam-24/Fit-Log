@@ -3,7 +3,6 @@ import SavedButton from "@/app/components/cardDetails/SavedButton";
 import { getAllCard } from "@/app/lib/cards";
 import { ICard } from "@/app/types/cards-type";
 import Image from "next/image";
-import Link from "next/link";
 
 interface ICardDetailsProps {
   params: {
@@ -11,6 +10,7 @@ interface ICardDetailsProps {
   };
 }
 
+// export const revalidate = 10;
 // // Server ke bole dilam je amar atogula data ace AND tumi ai data gula age thekei redi kore rakho
 // export async function generateStaticParams() {
 //   const allCard = await getAllCard();
@@ -25,26 +25,6 @@ const CardDetails = async ({ params }: ICardDetailsProps) => {
   const allCard = await getAllCard();
   const card = allCard.find((card: ICard) => String(card.id) === id) as ICard;
 
-  if (!card) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-[#0d0f12] px-4 text-white">
-        <div className="text-center">
-          <h1 className="text-4xl font-black">Workout Not Found</h1>
-          <p className="mt-3 text-gray-400">
-            The workout you are looking for does not exist.
-          </p>
-
-          <Link
-            href="/workout"
-            className="mt-6 inline-block rounded-xl bg-[#ccff00] px-6 py-3 font-semibold text-black transition hover:bg-[#d9ff4d]"
-          >
-            Back to Workouts
-          </Link>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <main className="min-h-screen bg-[#0d0f12] px-4 py-10 text-white sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
@@ -55,11 +35,10 @@ const CardDetails = async ({ params }: ICardDetailsProps) => {
               alt={card.name}
               width={200}
               height={200}
-              className="h-auto max-h-170 w-full rounded-2xl object-cover shadow-2xl"
+              className="h-full w-full rounded-2xl object-cover shadow-2xl"
             />
           </div>
           <div className="flex flex-col justify-center">
-            {/* Title */}
             <h1 className="text-3xl font-black uppercase tracking-tight sm:text-4xl md:text-5xl">
               {card.name}
             </h1>

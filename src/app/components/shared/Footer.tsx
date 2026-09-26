@@ -5,7 +5,6 @@ const Footer = () => {
   return (
     <footer className="mt-16 border-t border-white/5 bg-[#101216]">
       <div className="flex container mx-auto items-center justify-between gap-4 px-5 py-6 sm:px-8">
-        {/* Logo */}
         <div className="flex items-center gap-4">
           <Image
             src={logo}
