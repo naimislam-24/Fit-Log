@@ -1,36 +1,12 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+1/ Project name: Fit Log
 
-## Getting Started
+2/ Short description: FitLog is a modern workout library web application built with Next.js and Tailwind CSS. Users can explore different exercises, view detailed workout information, and easily discover exercises based on their fitness goals. The project features a responsive design, reusable components, dynamic workout details, and a clean dark-themed interface.
 
-First, run the development server:
+3/ Technologies used: Next.js, TypeScript, Tailwind CSS, DaisyUI, JSON Server / API, React Toastify
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+4/ 5 key features of the project: 1: Workout Library – বিভিন্ন ধরনের workout এক জায়গায় explore করা যাবে।
+2: Workout Details – প্রতিটি workout-এর বিস্তারিত তথ্য দেখার সুবিধা।
+3: Dynamic Routing – প্রতিটি workout-এর জন্য আলাদা dynamic details page।
+4: Responsive Design – Mobile, Tablet এবং Desktop সব device-এর জন্য responsive।
+5: Modern UI – Clean, modern এবং dark-themed user-friendly interface।  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
