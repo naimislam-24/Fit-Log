@@ -32,6 +32,16 @@ const MyPlanPage = () => {
   // console.log("sortedPlanCard", sortedPlanCard);
   // console.log("sortedSaveCard", sortedSaveCard);
 
+  const totalExercises = planCard.length;
+  const totalMinutes = planCard.reduce(
+    (total, card) => total + card.duration,
+    0,
+  );
+  const totalCalories = planCard.reduce(
+    (total, card) => total + card.caloriesBurned,
+    0,
+  );
+
   return (
     <div className="min-h-[75vh]">
       <div className="container mx-auto mt-14">
@@ -42,7 +52,58 @@ const MyPlanPage = () => {
           Twelve lifts covering every major muscle group.
         </p>
       </div>
+      {/* ************************************************************************** */}
 
+      <div className="container mx-auto mt-8">
+        <div className="w-full rounded-2xl border border-white/10 bg-[#12151a] p-5 shadow-[0_10px_40px_rgba(0,0,0,0.25)] sm:p-6">
+          <div className="grid grid-cols-1 divide-y divide-white/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+            {/* Exercises */}
+            <div className="flex items-center justify-between px-2 py-5 sm:px-6 sm:py-2">
+              <div>
+                <p className="text-xs font-medium tracking-wide text-gray-500">
+                  Exercises
+                </p>
+                <h3 className="mt-1 text-3xl font-bold text-[#ccff00]">
+                  {totalExercises}
+                </h3>
+              </div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ccff00]/10 text-[#ccff00] sm:hidden">
+                ✓
+              </div>
+            </div>
+            {/* Minutes */}
+            <div className="flex items-center justify-between px-2 py-5 sm:px-6 sm:py-2">
+              <div>
+                <p className="text-xs font-medium tracking-wide text-gray-500">
+                  Minutes
+                </p>
+                <h3 className="mt-1 text-3xl font-bold text-white">
+                  {totalMinutes}
+                </h3>
+              </div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-gray-300 sm:hidden">
+                ⏱
+              </div>
+            </div>
+            {/* Calories */}
+            <div className="flex items-center justify-between px-2 py-5 sm:px-6 sm:py-2">
+              <div>
+                <p className="text-xs font-medium tracking-wide text-gray-500">
+                  Calories
+                </p>
+                <h3 className="mt-1 text-3xl font-bold text-white">
+                  {totalCalories}
+                </h3>
+              </div>
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/10 text-orange-400 sm:hidden">
+                🔥
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ************************************************************************** */}
       <div className="container mx-auto mt-10">
         <div className="tabs tabs-lift">
           <input
