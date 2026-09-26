@@ -11,6 +11,15 @@ interface ICardDetailsProps {
   };
 }
 
+// // Server ke bole dilam je amar atogula data ace AND tumi ai data gula age thekei redi kore rakho
+// export async function generateStaticParams() {
+//   const allCard = await getAllCard();
+//   const cardIds = allCard.map((card: ICard) => {
+//     return { id: card.id.toString() };
+//   });
+//   return cardIds;
+// }
+
 const CardDetails = async ({ params }: ICardDetailsProps) => {
   const { id } = await params;
   const allCard = await getAllCard();

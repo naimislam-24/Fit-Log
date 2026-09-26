@@ -181,7 +181,7 @@ const MyPlanPage = () => {
             defaultChecked
           />
 
-          <div className="tab-content bg-base-100 border-base-300 p-6">
+          <div className="tab-content bg-base-300 border-base-300 p-6">
             <div className="">
               {sortedPlanCard.length > 0 ? (
                 sortedPlanCard.map((card: ICard) => (
@@ -218,7 +218,7 @@ const MyPlanPage = () => {
             aria-label="Saved"
             // defaultChecked
           />
-          <div className="tab-content bg-base-100 border-base-300 p-6">
+          <div className="tab-content bg-base-300 border-base-300 p-6">
             <div className="">
               {sortedSaveCard.length > 0 ? (
                 sortedSaveCard.map((card: ICard) => (

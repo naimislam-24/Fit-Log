@@ -15,7 +15,7 @@ const PlanCard = ({ card }: ICardProps) => {
   return (
     <div className="container mx-auto mt-4">
       <div
-        className="group relative flex flex-col gap-4 rounded-2xl border border-white/10 bg-[#14151a] p-5 
+        className="group relative flex flex-col gap-4 rounded-2xl border border-white/10  bg-[#12151a] p-5 
   shadow-sm transition-all duration-300 hover:border-white/20 hover:shadow-lg hover:shadow-black/20 sm:flex-row sm:items-center sm:gap-6 sm:py-6"
       >
         <div className="h-25 w-25 shrink-0 overflow-hidden rounded-xl bg-white/5">
@@ -68,11 +68,9 @@ const PlanCard = ({ card }: ICardProps) => {
           <button
             onClick={() => deletePlanCard(card.id)}
             aria-label={`Delete ${card.name}`}
-            className="group inline-flex h-10 w-full items-center justify-center rounded-xl border border-red-500/20 bg-red-500/10 px-4 text-lg font-bold text-red-400 transition-all duration-300 hover:-translate-y-0.5 hover:border-red-500/40 hover:bg-red-500/20 hover:text-red-300 active:scale-95 sm:w-10"
+            className="group inline-flex h-10 w-full items-center justify-center rounded-xl px-4 text-lg font-bold transition-all duration-300 hover:-translate-y-0.5 hover:border-red-500/40 hover:bg-gray-800 hover:text-gray-200 active:scale-95 sm:w-10"
           >
-            <span className="transition-transform duration-300 group-hover:rotate-90">
-              ×
-            </span>
+            <span>×</span>
           </button>
         </div>
       </div>
