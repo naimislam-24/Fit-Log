@@ -2,6 +2,7 @@
 import { CardsContext } from "@/app/context/CardsProvider";
 import { ICard } from "@/app/types/cards-type";
 import { useContext } from "react";
+import { toast } from "react-toastify";
 
 interface ICardProps {
   card: ICard;
@@ -13,7 +14,10 @@ const DeleteMarkButton = ({ card }: ICardProps) => {
   return (
     <div>
       <button
-        onClick={() => deletePlanCard(card.id)}
+        onClick={() => {
+          deletePlanCard(card.id);
+          toast.success(`Removed from today's plan`);
+        }}
         className="group inline-flex w-full items-center justify-center gap-1.5 rounded-xl bg-[#c8ff00] px-5 py-2.5 text-xs font-bold text-black shadow-[0_0_20px_rgba(200,255,0,0.15)]
                       transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#d4ff33] hover:shadow-[0_0_25px_rgba(200,255,0,0.3)] active:scale-[0.97] sm:w-auto"
       >
