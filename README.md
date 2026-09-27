@@ -1,12 +1,14 @@
-1/ Project name: Fit Log
+🏋️‍♂️ FitLog — Your Personal Workout Library
 
-2/ Short description: FitLog is a modern workout library web application built with Next.js and Tailwind CSS. Users can explore different exercises, view detailed workout information, and easily discover exercises based on their fitness goals. The project features a responsive design, reusable components, dynamic workout details, and a clean dark-themed interface.
+FitLog is a sleek, modern workout library web application built with Next.js and Tailwind CSS, designed to help users explore exercises, track workout details, and stay motivated on their fitness journey. With a clean dark-themed UI and fully responsive layout, FitLog delivers a smooth browsing experience across all devices — whether you're at home, at the gym, or on the go.
 
-3/ Technologies used: Next.js, TypeScript, Tailwind CSS, DaisyUI, JSON Server / API, React Toastify
+⚙️ Tech Stack
 
-4/ 5 key features of the project: 1: Workout Library – বিভিন্ন ধরনের workout এক জায়গায় explore করা যাবে।
-2: Workout Details – প্রতিটি workout-এর বিস্তারিত তথ্য দেখার সুবিধা।
-3: Dynamic Routing – প্রতিটি workout-এর জন্য আলাদা dynamic details page।
-4: Responsive Design – Mobile, Tablet এবং Desktop সব device-এর জন্য responsive।
-5: Modern UI – Clean, modern এবং dark-themed user-friendly interface।  
+Next.js · TypeScript · Tailwind CSS · DaisyUI · JSON Server / API · React Toastify
 
+✨ Key Features
+🗂️ Workout Library — বিভিন্ন ধরনের workout একসাথে explore করার সুবিধা, যাতে ইউজার সহজেই তাদের পছন্দের exercise খুঁজে নিতে পারে।
+📋 Workout Details — প্রতিটি workout-এর বিস্তারিত তথ্য (instructions, benefits, target muscles) এক ক্লিকে দেখা যায়।
+🔗 Dynamic Routing — প্রতিটি workout-এর জন্য আলাদা dynamic details page, যা smooth এবং fast navigation নিশ্চিত করে।
+📱 Responsive Design — Mobile, Tablet ও Desktop — সব device-এই perfectly optimized experience।
+🎨 Modern UI/UX — Clean, minimal এবং dark-themed interface যা ব্যবহার করতে comfortable এবং visually appealing।
